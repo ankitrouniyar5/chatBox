@@ -2,6 +2,13 @@ const socket = io()
 
 socket.on('welcomeMessage',(message)=>{
     console.log(message)
+    const html = Mustache.render(messageTemplate,{
+        message : message.text,
+        createdAt : moment(message.createdAt).format('h:mm A')
+
+    })
+    
+    $messages.insertAdjacentHTML('beforeend', html)
 })
 //elements
 const $messageForm = document.querySelector('#message-form')
@@ -19,7 +26,8 @@ const locationTemplate = document.querySelector('#location-template').innerHTML
 socket.on('fromServer', (message) => {
     console.log(message)
     const html = Mustache.render(messageTemplate,{
-        message
+        message:message.text,
+        createdAt : moment(message.createdAt).format('h:mm A')
     })
     
     $messages.insertAdjacentHTML('beforeend', html)
@@ -27,9 +35,9 @@ socket.on('fromServer', (message) => {
 
 socket.on('locationMessage',(url)=>{
     const html = Mustache.render(locationTemplate,{
-        url
+        url : url.text,
+        createdAt  : moment(url.createdAt).format('h:mm A')
     })
-
     $locations.insertAdjacentHTML('beforeend',html)
 })
 

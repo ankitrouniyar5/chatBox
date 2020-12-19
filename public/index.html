@@ -7,7 +7,9 @@
     <body>
         <h1>CHAT APP</h1>
         <div id="messages"></div>
+        <br>
         <div id = "locations"></div>
+        <br>
         <form id = "message-form">
             <input id="inputMessage" name="inputMessage" type="text" placeholder="write your message here">
             <input id = "sendMessage" type="submit">
@@ -18,13 +20,14 @@
 
         <script id="message-template" type="text/html">
             <div>
-                <p>{{message}}</p>
+                <p>{{message}} , {{createdAt}}</p>
             </div>
         </script>
 
         <script id = "location-template" type="text/html">
             <div>
                 <a href = "{{url}}" target = "_blank">My location</a>
+                 <span>{{createdAt}}</span>
             </div>
         </script>
         
