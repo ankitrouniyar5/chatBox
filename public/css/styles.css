@@ -18,6 +18,7 @@ body {
     line-height: 1.4;
     color: #333333;
     font-family: Helvetica, Arial, sans-serif;
+  
 }
 
 h1 {
@@ -65,6 +66,10 @@ button:disabled {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../img/homepage_background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .centered-form__box {
